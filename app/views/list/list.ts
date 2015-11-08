@@ -1,12 +1,33 @@
 /// <reference path="../../dependencies.d.ts" />
 
-import observable = require('data/observable');
-import pages = require('ui/page');
-import vmModule = require('../../shared/view-models/list-view-model');
+import { Observable, EventData } from 'data/observable';
+import * as pages from 'ui/page';
+import * as dialogs from 'ui/dialogs';
+import ListViewModel from '../../shared/view-models/list-view-model';
 
-// Event handler for Page "loaded" event attached in main-page.xml
-export function pageLoaded(args: observable.EventData) {
-    // Get the event sender
-    var page = <pages.Page>args.object;
-    page.bindingContext = vmModule.mainViewModel;
+let listModel = new ListViewModel();
+
+let pageData = new Observable({
+    playerList: listModel.getPlayers(),
+    onCreate() {
+        dialogs.prompt({
+            title: 'Имя игрока',
+            okButtonText: 'Добавить',
+            cancelButtonText: 'Отменить',
+            inputType: dialogs.inputType.text
+        }).then((data: dialogs.PromptResult) => {
+            if(!data.result) return;
+
+            listModel.addPlayer({
+                name: data.text,
+                level: 1,
+                attack: 0
+            });
+        });
+    }
+});
+
+export function main(args: EventData) {
+    let page = <pages.Page>args.object;
+    page.bindingContext = pageData;
 }

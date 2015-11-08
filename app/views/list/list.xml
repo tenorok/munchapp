@@ -1,10 +1,10 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" actionBarHidden="true">
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="main" actionBarHidden="true">
     <StackLayout>
-        <Button text="Добавить" tap="{{onCreate}}" class="create" />
-        <!--<ListView items="{{ groceryList }}">-->
-            <!--<ListView.itemTemplate>-->
-                <!--<Label text="{{ name }}" horizontalAlignment="left" verticalAlignment="center"/>-->
-            <!--</ListView.itemTemplate>-->
-        <!--</ListView>-->
+        <Button text="Добавить" tap="{{ onCreate }}" class="create" />
+        <ListView items="{{ playerList }}">
+            <ListView.itemTemplate>
+                <Label text="{{ name }}" horizontalAlignment="left" verticalAlignment="center"/>
+            </ListView.itemTemplate>
+        </ListView>
     </StackLayout>
 </Page>

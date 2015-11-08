@@ -1,7 +1,6 @@
 /// <reference path="../../dependencies.d.ts" />
 
-import observable = require('data/observable');
-import dialogs = require('ui/dialogs');
+import { ObservableArray } from 'data/observable-array';
 
 type Player = {
     name: string;
@@ -9,31 +8,19 @@ type Player = {
     attack: number;
 };
 
-export class HelloWorldModel extends observable.Observable {
-    private players: Array<Player>;
+export default class ListViewModel {
+    private players: ObservableArray<Player>;
 
-    constructor() {
-        super();
-
-        this.players = [];
-        //this.set("message", this.counter + " taps left");
+    constructor(players: Array<Player> = []) {
+        this.players = new ObservableArray<Player>(players);
     }
 
-    onCreate() {
-        dialogs.prompt({
-            title: 'Имя игрока',
-            okButtonText: 'Добавить',
-            cancelButtonText: 'Отменить',
-            inputType: dialogs.inputType.text
-        }).then((data: dialogs.PromptResult) => {
-            if(!data.result) return;
+    getPlayers(): ObservableArray<Player> {
+        return this.players;
+    }
 
-            this.players.push({
-                name: data.text,
-                level: 1,
-                attack: 0
-            });
-        });
+    addPlayer(player: Player): ListViewModel {
+        this.players.push(player);
+        return this;
     }
 }
-export var mainViewModel = new HelloWorldModel();
