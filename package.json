@@ -1,0 +1,15 @@
+{
+	"dependencies": {
+		"tns-core-modules": "1.4.0"
+	},
+	"devDependencies": {},
+	"nativescript": {
+		"id": "munchapp",
+		"tns-ios": {
+			"version": "1.4.1"
+		},
+		"tns-android": {
+			"version": "1.4.0"
+		}
+	}
+}
