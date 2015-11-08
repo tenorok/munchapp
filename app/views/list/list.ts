@@ -1,8 +1,8 @@
-/// <reference path="./dependencies.d.ts" />
+/// <reference path="../../dependencies.d.ts" />
 
-import observable = require("data/observable");
-import pages = require("ui/page");
-import vmModule = require("./main-view-model");
+import observable = require('data/observable');
+import pages = require('ui/page');
+import vmModule = require('../../shared/view-models/list-view-model');
 
 // Event handler for Page "loaded" event attached in main-page.xml
 export function pageLoaded(args: observable.EventData) {
