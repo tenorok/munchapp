@@ -16,3 +16,9 @@ tns platform add ios
 tsc
 tns run ios --emulator
 ```
+
+For development:
+
+```bash
+tns livesync ios --emulator --watch
+```
