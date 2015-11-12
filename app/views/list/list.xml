@@ -1,14 +1,18 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="main" actionBarHidden="true">
-    <StackLayout>
-        <Button text="Добавить" tap="{{ onCreate }}" class="create" />
-        <ListView items="{{ playerList }}" separatorColor="#fff" class="list">
-            <ListView.itemTemplate>
-                <GridLayout rows="auto" columns="40,*,*" class="item">
-                    <Label col="0" text="{{ attack }}" class="attack" />
-                    <Label col="1" text="{{ name }}" class="name" />
-                    <Label col="2" text="{{ level }}" class="level" />
-                </GridLayout>
-            </ListView.itemTemplate>
-        </ListView>
-    </StackLayout>
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="main">
+    <Page.actionBar>
+        <ActionBar title="Манчкины">
+            <ActionBar.actionItems>
+                <ActionItem text="Добавить" ios.position="right" tap="onCreate" />
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+    <ListView items="{{ playerList }}" separatorColor="#fff" class="list">
+        <ListView.itemTemplate>
+            <GridLayout rows="auto" columns="40,*,*" class="item">
+                <Label col="0" text="{{ attack }}" class="attack" />
+                <Label col="1" text="{{ name }}" class="name" />
+                <Label col="2" text="{{ level }}" class="level" />
+            </GridLayout>
+        </ListView.itemTemplate>
+    </ListView>
 </Page>
