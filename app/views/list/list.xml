@@ -6,7 +6,7 @@
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar>
-    <ListView items="{{ playerList }}" separatorColor="#fff" class="list">
+    <ListView items="{{ players }}" separatorColor="#fff" class="list">
         <ListView.itemTemplate>
             <GridLayout rows="auto" columns="40,*,*" class="item">
                 <Label col="0" text="{{ attack }}" class="attack" />

@@ -1,5 +1,3 @@
-/// <reference path="../../dependencies.d.ts" />
-
 import { ObservableArray } from 'data/observable-array';
 
 type Player = {
@@ -9,18 +7,18 @@ type Player = {
 };
 
 export default class ListViewModel {
-    private players: ObservableArray<Player>;
+    private _players: ObservableArray<Player>;
 
     constructor(players: Array<Player> = []) {
-        this.players = new ObservableArray<Player>(players);
+        this._players = new ObservableArray<Player>(players);
     }
 
-    getPlayers(): ObservableArray<Player> {
-        return this.players;
+    get players(): ObservableArray<Player> {
+        return this._players;
     }
 
     addPlayer(player: Player): ListViewModel {
-        this.players.push(player);
+        this._players.push(player);
         return this;
     }
 }

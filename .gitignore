@@ -1,5 +1,7 @@
 node_modules
 lib
 platforms
+typings
+!typings/tns-core-modules
 *.js
 *.js.map

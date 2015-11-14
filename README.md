@@ -3,7 +3,7 @@
 Global dependencies:
 
 ```bash
-npm i appbuilder nativescript typescript -g
+npm i appbuilder nativescript typescript tsd -g
 ```
 
 Steps for create blank skeleton of project NativeScript with TypeScript:
@@ -17,7 +17,9 @@ tns init
 Steps for run new or exists project:
 
 ```bash
-tns platform add ios
+tns platform add ios && git co package.json
+npm i
+tsd install
 tsc
 tns emulate ios --device "iPhone-6"
 ```
