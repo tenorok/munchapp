@@ -35,4 +35,4 @@
 /// <reference path="../typings/tns-core-modules/android17.d.ts" />
 /// <reference path="../typings/tns-core-modules/ios.d.ts" />
 
-/// <reference path="../typings/tsd.d.ts" />
+// <reference path="../typings/tsd.d.ts" />

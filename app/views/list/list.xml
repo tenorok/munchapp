@@ -1,4 +1,4 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="main">
+<Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:picker="xml-declaration/picker/Picker" loaded="main">
     <Page.actionBar>
         <ActionBar title="Манчкины">
             <ActionBar.actionItems>
@@ -6,13 +6,16 @@
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar>
-    <ListView items="{{ players }}" separatorColor="#fff" class="list">
-        <ListView.itemTemplate>
-            <GridLayout rows="auto" columns="40,*,*" class="item">
-                <Label col="0" text="{{ attack }}" class="attack" />
-                <Label col="1" text="{{ name }}" class="name" />
-                <Label col="2" text="{{ level }}" class="level" />
-            </GridLayout>
-        </ListView.itemTemplate>
-    </ListView>
+    <StackLayout>
+        <ListView items="{{ players }}" separatorColor="#fff" class="list">
+            <ListView.itemTemplate>
+                <GridLayout rows="auto" columns="40,*,*" class="item">
+                    <Label col="0" text="{{ attack }}" class="attack" tap="onAttack" />
+                    <Label col="1" text="{{ name }}" class="name" />
+                    <Label col="2" text="{{ level }}" class="level" />
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+        <picker:Picker items="{{ attackPickerItems }}" id="attack-picker" />
+    </StackLayout>
 </Page>

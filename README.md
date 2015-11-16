@@ -29,3 +29,9 @@ For development:
 ```bash
 tns livesync ios --emulator --watch
 ```
+
+For debug:
+
+```bash
+tns debug ios --emulator --device "iPhone-6"
+```
