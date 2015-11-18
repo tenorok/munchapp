@@ -1,4 +1,4 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:picker="xml-declaration/picker/Picker" loaded="main">
+<Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:picker="xml-declaration/picker" loaded="main">
     <Page.actionBar>
         <ActionBar title="Манчкины">
             <ActionBar.actionItems>
@@ -16,6 +16,6 @@
                 </GridLayout>
             </ListView.itemTemplate>
         </ListView>
-        <picker:Picker items="{{ attackPickerItems }}" id="attack-picker" />
+        <picker:Picker id="attack-picker" />
     </StackLayout>
 </Page>

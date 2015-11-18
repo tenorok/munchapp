@@ -5,15 +5,14 @@ import { ListPicker } from 'ui/list-picker';
 export class Picker extends StackLayout {
     private _picker: ListPicker;
 
-    constructor(items: Array<string>, selectedIndex: number = 0) {
+    constructor(pickerView: Picker, items: Array<string>, selectedIndex: number = 0) {
         super();
 
-        this._picker = new ListPicker();
+        this._picker = <ListPicker>view.getViewById(pickerView, 'picker');
         this._picker.items = items;
         this._picker.selectedIndex = selectedIndex;
 
         this.hide();
-        this.addChild(this._picker);
     }
 
     /**

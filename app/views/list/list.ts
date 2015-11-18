@@ -11,8 +11,7 @@ let listModel = new ListViewModel([
 ]);
 
 let bindingContext = new Observable({
-    players: listModel.players,
-    attackPickerItems: Array.apply(null, Array(50)).map(function (e, i) { return i + 1; })
+    players: listModel.players
 });
 
 let attackPicker: Picker;
@@ -20,7 +19,10 @@ let attackPicker: Picker;
 export function main(args: ObservableEventData) {
     let page = <pages.Page>args.object;
     page.bindingContext = bindingContext;
-    attackPicker = <Picker>page.getViewById('attack-picker');
+    attackPicker = new Picker(
+        <Picker>page.getViewById('attack-picker'),
+        Array.apply(null, Array(50)).map(function (e, i) { return i + 1; })
+    );
 }
 
 export function onCreate() {
