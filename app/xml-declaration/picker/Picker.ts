@@ -5,7 +5,7 @@ import { ListPicker } from 'ui/list-picker';
 export class Picker extends StackLayout {
     private _picker: ListPicker;
 
-    constructor(pickerView: Picker, items: Array<string>, selectedIndex: number = 0) {
+    constructor(pickerView: Picker, items: Array<string|number>, selectedIndex: number = 0) {
         super();
 
         this._picker = <ListPicker>view.getViewById(pickerView, 'picker');

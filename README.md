@@ -18,7 +18,7 @@ Steps for run new or exists project:
 
 ```bash
 tns platform add ios && git co package.json
-npm i
+npm install
 tsd install
 tsc
 tns emulate ios --device "iPhone-6"
@@ -33,5 +33,5 @@ tns livesync ios --emulator --watch
 For debug:
 
 ```bash
-tns debug ios --emulator --device "iPhone-6"
+tns debug ios --debug-brk --emulator --device "iPhone-6"
 ```

@@ -5,5 +5,8 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
+    "lodash/lodash.d.ts": {
+      "commit": "fc341765ebbb04b7109981a25dced01f488f4d94"
+    }
   }
 }

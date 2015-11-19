@@ -10,12 +10,13 @@
         <ListView items="{{ players }}" separatorColor="#fff" class="list">
             <ListView.itemTemplate>
                 <GridLayout rows="auto" columns="40,*,*" class="item">
-                    <Label col="0" text="{{ attack }}" class="attack" tap="onAttack" />
+                    <Label col="0" text="{{ attack }}" class="attack" tap="chooseAttack" />
                     <Label col="1" text="{{ name }}" class="name" />
-                    <Label col="2" text="{{ level }}" class="level" />
+                    <Label col="2" text="{{ level }}" class="level" tap="chooseLevel"/>
                 </GridLayout>
             </ListView.itemTemplate>
         </ListView>
         <picker:Picker id="attack-picker" />
+        <picker:Picker id="level-picker" />
     </StackLayout>
 </Page>

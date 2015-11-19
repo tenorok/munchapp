@@ -1,9 +1,9 @@
 {
   "dependencies": {
+    "lodash": "^3.10.1",
     "tns-core-modules": "1.4.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "nativescript": {
     "id": "munchapp",
     "tns-ios": {
