@@ -56,7 +56,7 @@ export function onCreate() {
         listModel.addPlayer({
             name: data.text,
             level: 1,
-            attack: 0
+            attack: 1
         });
     });
 }
@@ -68,6 +68,9 @@ export function chooseAttack(args) {
     attackPicker.on('complete', () => {
         view.text = attackPicker.value;
     });
+    attackPicker.on('hide', () => {
+        attackPicker.off('complete');
+    });
 }
 
 export function chooseLevel(args) {
@@ -76,5 +79,8 @@ export function chooseLevel(args) {
     levelPicker.show();
     levelPicker.on('complete', () => {
         view.text = levelPicker.value;
+    });
+    levelPicker.on('hide', () => {
+        levelPicker.off('complete');
     });
 }

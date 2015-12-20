@@ -7,9 +7,13 @@
         </ActionBar>
     </Page.actionBar>
     <StackLayout>
+        <GridLayout rows="auto" columns="40,*,30" class="item">
+            <Image col="0" src="~/views/list/attack.png" stretch="none" />
+            <Image col="2" src="~/views/list/level.png" stretch="none" />
+        </GridLayout>
         <ListView items="{{ players }}" separatorColor="#fff" class="list">
             <ListView.itemTemplate>
-                <GridLayout rows="auto" columns="40,*,*" class="item">
+                <GridLayout rows="auto" columns="40,*,20" class="item">
                     <Label col="0" text="{{ attack }}" class="attack" tap="chooseAttack" />
                     <Label col="1" text="{{ name }}" class="name" />
                     <Label col="2" text="{{ level }}" class="level" tap="chooseLevel"/>
