@@ -32,6 +32,8 @@
 /// <reference path="../typings/tns-core-modules/ui/button/button.d.ts" />
 /// <reference path="../typings/tns-core-modules/ui/label/label.d.ts" />
 /// <reference path="../typings/tns-core-modules/ui/switch/switch.d.ts" />
+/// <reference path="../typings/tns-core-modules/ui/dialogs/dialogs.d.ts" />
+/// <reference path="../typings/tns-core-modules/ui/list-picker/list-picker.d.ts" />
 /// <reference path="../typings/tns-core-modules/android17.d.ts" />
 /// <reference path="../typings/tns-core-modules/ios.d.ts" />
 

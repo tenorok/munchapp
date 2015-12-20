@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "cnclasslist": "^1.0.0",
     "lodash": "^3.10.1",
     "tns-core-modules": "1.4.0"
   },

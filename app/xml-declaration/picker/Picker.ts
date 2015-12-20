@@ -1,16 +1,38 @@
+import { Observable, EventData as ObservableEventData } from 'data/observable';
 import * as view from 'ui/core/view';
-import { StackLayout } from 'ui/layouts/stack-layout';
 import { ListPicker } from 'ui/list-picker';
+import { Button } from 'ui/button';
 
-export class Picker extends StackLayout {
-    private _picker: ListPicker;
+import { CNClassList } from 'cnclasslist';
+import { CLView } from '../../views/CLViewInterface';
 
-    constructor(pickerView: Picker, items: Array<string|number>, selectedIndex: number = 0) {
+export class Picker extends Observable {
+    private _listPicker: ListPicker;
+    private _picker: CLView;
+    private _complete: Button;
+
+    constructor(pickerView: view.View, items: Array<string|number>, selectedIndex: number = 0) {
         super();
 
-        this._picker = <ListPicker>view.getViewById(pickerView, 'picker');
-        this._picker.items = items;
-        this._picker.selectedIndex = selectedIndex;
+        this._picker = view.getViewById(pickerView, 'picker');
+        this._picker.classList = new CNClassList(this._picker);
+
+        this._complete = <Button>view.getViewById(pickerView, 'complete');
+        this._complete.on(Button.tapEvent, () => {
+
+            this.notify({
+                eventName: 'complete',
+                object: this
+            });
+
+            this
+                .setSelectedIndex()
+                .hide();
+        });
+
+        this._listPicker = <ListPicker>view.getViewById(pickerView, 'list-picker');
+        this._listPicker.items = items;
+        this._listPicker.selectedIndex = selectedIndex;
 
         this.hide();
     }
@@ -19,32 +41,45 @@ export class Picker extends StackLayout {
      * XML-setter
      */
     set items(value: Array<string>) {
-        this._picker.items = value;
+        this._listPicker.items = value;
     }
 
-    set index(value) {
-        this._picker.selectedIndex = value;
+    set index(value: number) {
+        this._listPicker.selectedIndex = value;
     }
 
     get index(): number {
-        return this._picker.selectedIndex;
+        return this._listPicker.selectedIndex;
     }
 
     get value(): string {
-        return this._picker.items[this._picker.selectedIndex];
+        return this._listPicker.items[this._listPicker.selectedIndex];
+    }
+
+    setSelectedIndex(): Picker {
+        this.index = this._listPicker.selectedIndex;
+        return this;
     }
 
     isShown(): boolean {
-        return this._picker.visibility === 'visible';
+        return this._picker.classList.contains('picker_visible');
     }
 
     show(): Picker {
-        this._picker.visibility = 'visible';
+        this._picker.classList.add('picker_visible');
+        this.notify({
+            eventName: 'show',
+            object: this
+        });
         return this;
     }
 
     hide(): Picker {
-        this._picker.visibility = 'collapse';
+        this._picker.classList.remove('picker_visible');
+        this.notify({
+            eventName: 'hide',
+            object: this
+        });
         return this;
     }
 }

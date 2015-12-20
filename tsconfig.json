@@ -6,5 +6,13 @@
   "exclude": [
     "node_modules",
     "platforms"
+  ],
+  "files": [
+    "app/dependencies.d.ts",
+    "app/views/CLViewInterface.ts",
+    "app/app.ts",
+    "app/view-models/list.ts",
+    "app/views/list/list.ts",
+    "app/xml-declaration/picker/Picker.ts"
   ]
 }

@@ -1,3 +1,6 @@
 <StackLayout>
-    <ListPicker id="picker" class="picker" />
+    <StackLayout id="picker" class="picker">
+        <Button col="0" text="Готово" id="complete" class="complete" />
+        <ListPicker id="list-picker" class="list-picker" />
+    </StackLayout>
 </StackLayout>
